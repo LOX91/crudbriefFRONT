@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Products } from 'src/app/models/products';
 import { Utilisateur } from 'src/app/models/utilisateurs';
 import { ProductsService } from 'src/app/service/products.service';
@@ -13,7 +14,7 @@ export class HomeComponent {
 productsToDisplay: Products[]= [];
 token : boolean = false
 
-constructor(private productsService:ProductsService){}
+constructor(private productsService:ProductsService, private route:Router){}
 
 ngOnInit():void {
 
@@ -27,5 +28,8 @@ ngOnInit():void {
     return;
 
   }
+}
+modifierProduit(id: number) {
+  this.route.navigate(['/change'], { queryParams: { id: id } });
 }
 }

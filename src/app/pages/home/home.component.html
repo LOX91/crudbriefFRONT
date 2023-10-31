@@ -1,4 +1,4 @@
-
+<!--
  <button [routerLink]="['/add']">Ajouter un produit</button>
 
 
@@ -10,6 +10,7 @@
         <th>Prix</th>
         <th>Quantité</th>
         <th>Action</th>
+
     </tr>
     <tr *ngFor="let produit of productsToDisplay">
 
@@ -17,7 +18,43 @@
         <td>{{produit.nom}}</td>
         <td>{{produit.prix}}</td>
         <td>{{produit.quantite}}</td>
-        <!-- <td><button [routerLink]="'/editer_produit/'+produit.id">Editer</button><button (click)="delete(produit.id)">Supprimer</button></td> -->
-    </tr>
-</table>
+        <td><button type="button" routerLink="/change,produit.id]">EDITER</button><button type="button" [routerLink]="['/delete/',produit.id]" >Supprimer</button></td >
 
+
+    </tr>
+</table> -->
+
+<p>Modification</p>
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">nom</th>
+            <th scope="col">prix</th>
+            <th scope="col">quantité</th>
+            <th scope="col">action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produit of productsToDisplay; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{produit.nom}}</td>
+            <td>{{produit.prix}}</td>
+            <td>{{produit.quantite}}</td>
+            <td>
+              <td><button type="button" routerLink="/change,produit.id]">EDITER</button><button type="button" [routerLink]="['/delete/',produit.id]" >Supprimer</button></td >
+<!-- <button routerLink="/update"    type="button"  class="btn btn-primary" (click)="modifierProduit(produit.id)" >
+   <i class="fa fa-trash" aria-hidden="true"></i> Modifier
+</button>
+<button type="button" class="btn btn-danger" (click)="supprimer(produit.id)">
+    <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
+</button> -->
+
+            
+
+        </tr>
+
+    </tbody>
+
+</table>

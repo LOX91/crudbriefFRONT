@@ -4,22 +4,27 @@ import { Products } from '../models/products';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
+  private bddUrl = 'http://localhost:3000/api/produit';
 
-  private bddUrl ='http://localhost:3000/api/produit'
-
-  constructor(private Http : HttpClient) { }
+  constructor(private Http: HttpClient) {}
   getProducts(): Observable<Products[]> {
-    return  this.Http.get<Products[]>("http://localhost:3000/api/produit");
+    return this.Http.get<Products[]>('http://localhost:3000/api/produit');
   }
 
-  addProduct(product: Products){
-    return this.Http.post<Products>(this.bddUrl, product)
+  getProductById(id: number):Observable<Products> {
+    return this.Http.get<Products>(`${this.bddUrl}/${id}`);
   }
-  updateProduct(product: Products){
-    return this.Http.patch<Products>(this.bddUrl, product)
+
+  addProduct(product: Products) {
+    return this.Http.post<Products>(this.bddUrl, product);
+  }
+  updateProduct(id:number,product: Products) {
+    return this.Http.patch<Products>(`${this.bddUrl}/${id}`, product);
+  }
+  removeProduct(id: number) {
+    return this.Http.delete(`${this.bddUrl}/${id}`);
   }
 }
-
