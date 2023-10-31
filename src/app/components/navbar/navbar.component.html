@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm bg-body-tertiary shadow sticky-top">
+  <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['']">🪴Plantdex</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" routerLinkActive="ma-classe-active" [routerLink]="['home']">Home</a>
+              <a class="nav-link" aria-current="page" routerLinkActive="ma-classe-active" [routerLink]="['les produits']">Les produits</a>
+              <a class="nav-link" routerLinkActive="ma-classe-active" [routerLink]="['/add']">Ajouter</a>
+              <a class="nav-link" routerLinkActive="ma-classe-active" [routerLink]="['/change']">Modifier</a>
+              <a class="nav-link" routerLinkActive="ma-classe-active" [routerLink]="['/delete']">Supprimer </a>
+              <a class="nav-link" routerLinkActive="ma-classe-active" [routerLink]="['/login']">Connexion </a>
+
+            </div>
+      </div>
+  </div>
+</nav>

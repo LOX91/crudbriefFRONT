@@ -1,0 +1,21 @@
+<form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+
+  <div class="form-group">
+    <label for="nom">Nom du produit</label>
+    <input type="text" id="nom" class="form-control" formControlName="nom">
+  </div>
+  <div class="form-group">
+    <label for="prix">Prix du produit</label>
+    <input type="number" id="prix" class="form-control" formControlName="prix">
+  </div>
+  <div class="form-group">
+    <label for="quantite">Quantité</label>
+    <input type="number" id="quantite" class="form-control" formControlName="quantite">
+  </div>
+
+  <div class="form-group">
+    <label for="quantite">Catégorie</label>
+    <select class="form-control" id="id_categorie" formControlName="id_categorie">
+      <option *ngFor="let category of categories" [value]="category.id">{{category.nom}}</option>
+    </select>
+  </div>

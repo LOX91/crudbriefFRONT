@@ -1,0 +1,38 @@
+<!-- <div class="d-flex flex-column justify-content-center m-5 w-75">
+<form  [formGroup]="login" (ngSubmit)="OnConnect()" class="m-5 p-3">
+
+    <label for="email" class="m-2">E-mail</label>
+    <input type="email" class="form-control w-75" formControlName="email" name="email" id="email">
+
+    <label for="password" class="m-2">Mot de passe</label>
+    <input type="password" class="form-control w-75" formControlName="password" name="password">
+
+        <button href="#" class="btn btn-outline-success mt-4"  [disabled]="login.invalid">Se connecter</button>
+</form>
+<p class="m-5">Pas encore de compte ? <a href="#" [routerLink]="['/inscription']" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" >Rejoignez-nous!</a></p>
+</div> -->
+<div class="d-flex flex-column justify-content-center m-5 w-75">
+  <form  (submit)="OnConnect()" class="m-5 p-3">
+
+              <label for="email" class="m-2">Votre Email</label>
+              <input [(ngModel)]="email" name="email" type="email" class="form-control w-75"  required/>
+              <!-- <div *ngIf="erreurChamp.email" class="error-message">
+                  {{ erreurChamp.email }}
+              </div> -->
+
+              <label for="passwordCo" class="m-2">Votre mot de passe </label>
+              <input  [(ngModel)]="password" name="mot_de_passe" type="password" class="form-control w-75"  required />
+              <div id="passwordHelpBlock" class="form-text">
+                  Votre mot de passe doit contenir entre 8-20 caractères.
+              </div>
+              <!-- <div *ngIf="erreurChamp.mdp" class="error-message">
+                  {{ erreurChamp.mdp }}
+              </div> -->
+
+
+
+      <div class="button">
+          <button type="submit" class="btn btn-outline-success mt-4" > Se connecter</button>
+      </div>
+
+
