@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Token } from '../models/token';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(email:string, mot_de_passe: string){
-    return this.http.post<{accessToken:string}>(this.bddUrl+ '/auth/login', {email, mot_de_passe})
+  login(email:string, mot_de_passe: string):Observable<Token>{
+    return this.http.post<Token>(this.bddUrl+ '/auth/login', {email, mot_de_passe})
   }
 }

@@ -27,27 +27,25 @@ OnConnect() {
 
       next: (response: any) => {
         console.log('Réponse complète du serveur :', response)
-        console.log('Contenu de data', response.data);
+        console.log('Contenu de data', response.accessToken);
 
-        if (response && response.access_token && response.access_token.token) {
-          const token = response.access_token.token
+        if (response.accessToken) {
+          const token = response.accessToken
           // Stocker le token dans le localStorage
-          localStorage.setItem('access_token', token);
+          localStorage.setItem('token', token);
+          localStorage.setItem('user_email', this.email);
 
-          if (response.email) {
-            localStorage.setItem('user_email', response.data.email);
-          }
           console.log('Connexion réussie et token stocké!');
-          console.log(response);
-          alert('Vous êtes maintenant connecté !')
-          this.router.navigate(['/admin'])
+          console.log(response)
+          this.router.navigate(['/home']);
+           alert('Vous êtes maintenant connecté !')
+          return
         } else {
           console.error('Token non reçu dans la réponse.');
         }
       },
       error: (error: any) => {
         console.error('Erreur lors de la connexion:', error);
-
       }
     });
 

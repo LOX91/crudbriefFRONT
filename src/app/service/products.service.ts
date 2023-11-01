@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Products } from '../models/products';
 import { Observable } from 'rxjs';
@@ -10,6 +10,18 @@ export class ProductsService {
   private bddUrl = 'http://localhost:3000/api/produit';
 
   constructor(private Http: HttpClient) {}
+  setHeader(){
+
+    const jwtToken=localStorage.getItem('token');
+    const headers=new HttpHeaders({
+
+
+    })
+  }
+
+
+
+
   getProducts(): Observable<Products[]> {
     return this.Http.get<Products[]>('http://localhost:3000/api/produit');
   }
@@ -19,7 +31,7 @@ export class ProductsService {
   }
 
   addProduct(product: Products) {
-    return this.Http.post<Products>(this.bddUrl, product);
+    return this.Http.post<Products>(this.bddUrl, product,);
   }
   updateProduct(id:number,product: Products)
    {console.log("remy est gentil",id,product);
@@ -29,3 +41,7 @@ export class ProductsService {
     return this.Http.delete(`${this.bddUrl}/${id}`);
   }
 }
+function newHttpHeaders(arg0: {}) {
+  throw new Error('Function not implemented.');
+}
+
