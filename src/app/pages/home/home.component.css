@@ -1,0 +1,15 @@
+.btn-blue {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+
+}
+
+.btn-red {
+  background-color: red;
+  color: white; /* Couleur du texte en blanc pour un contraste approprié */
+  border: none; /* Supprimez la bordure du bouton si nécessaire */
+  padding: 10px 20px; /* Ajustez le rembourrage selon vos préférences */
+  /* Ajoutez d'autres styles au besoin, comme la police, la taille du texte, etc. */
+}
