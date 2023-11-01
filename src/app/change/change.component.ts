@@ -26,33 +26,11 @@ export class ChangeComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
 
 
-
-
-
-
-
-
-
-  // ngOnInit(){
-  //   // // this.loadCategories()
-  //   // // this.productForm = new FormGroup({
-  //   // //   nom: new FormControl('', Validators.required),
-  //   // //   prix: new FormControl(null, Validators.required),
-  //   // //   quantite: new FormControl(null, Validators.required),
-  //   // //   id_categorie: new FormControl(null, Validators.required)
-  //   // })
-
-
-// this.updateForm = newFormGroup({
-//   nom: new FormControl('', Validators.required),
-//   prix: new FormControl(null, Validators.required),
-//   quantite: new FormControl(null, Validators.required),
-//    id_categorie: new FormControl(null, Validators.required),
-
-const id = this.route.snapshot.queryParams['id'];
+// const id  = this.route.snapshot.queryParams['id'];
+const id =Number(this.route.snapshot.paramMap.get('id'));
+console.log(id);
 this.productService.getProductById(id).subscribe((product)=> {
   console.log(product);
   this.productForm.patchValue(product);
@@ -71,8 +49,9 @@ this.categorieService.getCategories().subscribe(
 
 updateProduct() {
 
-const id = this.route.snapshot.queryParams['id'];
+const id = Number(this.route.snapshot.paramMap.get('id'));
 
+console.log("ok remy",this.productForm.value)
 this.productService.updateProduct(id,this.productForm.value).subscribe(
   () => {
 

@@ -25,44 +25,51 @@
 </table> -->
 <button class="btn-blue" [routerLink]="['/add']">Ajouter un produit</button>
 
-
-
-
 <div class="container">
-<table class="table">
-  <style>
-    thead tr th {
+  <table class="table">
+    <style>
+      thead tr th {
         border-bottom: 2px solid black; /* Épaisseur et couleur de la bordure */
-    }
-</style>
+      }
+    </style>
     <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">nom</th>
-            <th scope="col">prix</th>
-            <th scope="col">quantité</th>
-            <th scope="col">action</th>
-        </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">nom</th>
+        <th scope="col">prix</th>
+        <th scope="col">quantité</th>
+        <th scope="col">action</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let produit of productsToDisplay; let i = index">
-            <th scope="row">{{i+1}}</th>
-            <td>{{produit.nom}}</td>
-            <td>{{produit.prix}}</td>
-            <td>{{produit.quantite}}</td>
-            <td>
-              <td><button class="btn-blue" type="button" [routerLink]="['/change', produit.id]">EDITER</button><button class="btn-red" type="button" [routerLink]="['/delete/', produit.id]">Supprimer</button></td >
-<!-- <button routerLink="/update"    type="button"  class="btn btn-primary" (click)="modifierProduit(produit.id)" >
+      <tr *ngFor="let produit of productsToDisplay; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ produit.nom }}</td>
+        <td>{{ produit.prix }}</td>
+        <td>{{ produit.quantite }}</td>
+        <td></td>
+        <td>
+          <button
+            class="btn-blue"
+            type="button"
+            [routerLink]="['/change', produit.id]"
+          >
+            EDITER</button
+          ><button
+            class="btn-red"
+            type="button"
+            [routerLink]="['/delete/', produit.id]"
+          >
+            Supprimer
+          </button>
+        </td>
+        <!-- <button routerLink="/update"    type="button"  class="btn btn-primary" (click)="modifierProduit(produit.id)" >
    <i class="fa fa-trash" aria-hidden="true"></i> Modifier
 </button>
 <button type="button" class="btn btn-danger" (click)="supprimer(produit.id)">
     <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
 </button> -->
-
-
-
-        </tr>
-
+      </tr>
     </tbody>
-
-</table>
+  </table>
+</div>

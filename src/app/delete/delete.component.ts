@@ -27,7 +27,7 @@ export class DeleteComponent {
       });
   }
   onDelete() {
-    this.produitService.removeProduct(this.produit.id).subscribe((reponse)=>{
+    this.produitService.removeProduct(this.produit.id!).subscribe((reponse)=>{
 this.router.navigate(["/home"])
     })
   }

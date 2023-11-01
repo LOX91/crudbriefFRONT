@@ -21,7 +21,8 @@ export class ProductsService {
   addProduct(product: Products) {
     return this.Http.post<Products>(this.bddUrl, product);
   }
-  updateProduct(id:number,product: Products) {
+  updateProduct(id:number,product: Products)
+   {console.log("remy est gentil",id,product);
     return this.Http.patch<Products>(`${this.bddUrl}/${id}`, product);
   }
   removeProduct(id: number) {

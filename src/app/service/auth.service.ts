@@ -5,6 +5,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  // rajout le 1 11 a 12 03
+  estConnecte: boolean = false;
+  connecterUtilisateur(){
+    this.estConnecte = true;
+    // deconnecterUtilisateur() {
+    //   // Logique de déconnexion
+    //   this.estConnecte = false;
+  }
 
   private bddUrl = 'http://localhost:3000/api'
 

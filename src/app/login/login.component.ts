@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UtilisateurService } from '../service/utilisateur.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,7 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  // loginForm: FormGroup
 
   email!: string;
   password!: string;
