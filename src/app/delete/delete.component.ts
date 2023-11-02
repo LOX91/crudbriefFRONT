@@ -27,9 +27,20 @@ export class DeleteComponent {
       });
   }
   onDelete() {
-    this.produitService.removeProduct(this.produit.id!).subscribe((reponse)=>{
-this.router.navigate(["/home"])
-    })
+    this.produitService.removeProduct(this.produit.id!).subscribe({
+      next:
+      (data)=>{
+      alert('produit supprimé avec succes')
+      this.router.navigate(['/home'])
+    },
+    error: (error)=>{
+      if (error.status === 401){
+        alert("vous n'avez pas la permission de supprimer ce produit ! Merci de vous connecter !");
+      }else {
+        alert("une erreur s'est produite lors de la mise à jour");
+      }
+    },
+  })
   }
 
 }

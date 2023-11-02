@@ -9,12 +9,14 @@ import { Observable } from 'rxjs';
 export class ProductsService {
   private bddUrl = 'http://localhost:3000/api/produit';
 
-  private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('access_token');
-    let headers = new HttpHeaders();
-    if (token) {
-      headers = headers.set('Authorization', 'Bearer ' + token);
-    }
+  getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    // if (token) {
+    //   headers = headers.set('Authorization', 'Bearer ' + token);
+    // }
     return headers;
   }
 
@@ -29,29 +31,22 @@ export class ProductsService {
   }
 
   addProduct(product: Products):Observable<Products>{
-    const headers = new HttpHeaders({
-      Authorisation: 'Bearer ' + localStorage.getItem('access_token'),
-    });
+    const headers = this.getHeaders();
     return this.Http.post<Products>(
-    'http://localhost:3000/api/produit', product,{ headers: headers },
+    'http://localhost:3000/api/produit', product,{ headers },
     );
+  }
 
-    }
   updateProduct(id: number, product: Products):Observable<Products> {
-
-
-    return this.Http.patch<Products>(`http://localhost:3000/api/produit/${id}`, product,{ headers: this.getHeaders() }
+    const headers = this.getHeaders()
+    return this.Http.patch<Products>(`http://localhost:3000/api/produit/${id}`, product,{ headers }
     );
   }
   removeProduct(id: number) {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-    });
-    return this.Http.delete(`http://localhost:3000/api/produit/${id}`,{
-      headers:headers,
-    });
+    const headers = this.getHeaders()
+    console.log(headers);
+
+    return this.Http.delete(`http://localhost:3000/api/produit/${id}`,{ headers });
   }
 }
-function newHttpHeaders(arg0: {}) {
-  throw new Error('Function not implemented.');
-}
+
